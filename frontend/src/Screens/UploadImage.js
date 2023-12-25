@@ -30,7 +30,7 @@ export default function Homepage() {
 			const formData = new FormData();
 			formData.append("uploadedImage", image.raw);
 		
-		const response=	await fetch("https://thaiocr-production-96be.up.railway.app/api/create_users", {
+		const response=	await fetch("https://thaiocr-production-96be.up.railway.app/api/create_user", {
 			  method: "POST",
 			  headers: {
 			  },
