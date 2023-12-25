@@ -72,7 +72,7 @@ export default function ResultPage() {
 		// window.alert(id);
 		try {
 			
-			const response=await fetch(`http://localhost:8081/api/deleterecord/${id}`,{
+			const response=await fetch(`https://thaiocr-production-96be.up.railway.app/api/deleterecord/${id}`,{
 			  method:"POST",
 			  headers:{
 				// 'content-Type':'application/json',
@@ -96,7 +96,7 @@ export default function ResultPage() {
 	
 		try {
 	   
-		  const response=await fetch("http://localhost:8081/api/fetchrecord",{
+		  const response=await fetch("https://thaiocr-production-96be.up.railway.app/api/fetchrecord",{
 			method:"GET",
 			headers:{
 			//   'content-Type':'application/json',

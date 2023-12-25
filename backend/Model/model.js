@@ -17,15 +17,15 @@ const userSchema= new Schema({
     },
     dob:{
         type:String,
-        required:false
+        required:true
     },
     issueDate:{
         type:String,
-        required:false
+        required:true
     },
     expiryDate:{
         type:String,
-        required:false
+        required:true
     },
     status:{
        type:String,
