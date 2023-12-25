@@ -1,5 +1,4 @@
-/* YourComponent.css */
-
+ 
 .content-section {
     padding: 20px;
   }
@@ -8,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 80px); /* Consider the height of the navbar */
+    min-height: calc(100vh - 80px); 
   }
   
   .main-wrapper {
@@ -76,10 +75,7 @@
     white-space: pre-wrap;
   }
   
-  /* Navbar styles (assuming you have a separate Navbar.css file) */
-  /* Add styles to fit your navbar design */
-  
-  /* Example Navbar styles */
+
   .navbar {
     background-color: #333;
     padding: 15px 20px;
@@ -110,6 +106,6 @@
   .nav-button:hover {
     color: #ffc107;
   }
-  
-  /* ... (add more styles as needed) */
+
+
   

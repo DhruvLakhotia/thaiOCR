@@ -172,7 +172,7 @@ export default function ResultPage() {
 						</td>
 						<td>
 						  <button onClick={() => deleteItem(data._id)}>
-							<i className="bx bxs-trash"></i>
+							Delete
 						  </button>
 						</td>
 					  </tr>
@@ -184,6 +184,7 @@ export default function ResultPage() {
 		  </div>
 		</div>
 	  </main>
+
 	</section>
   </div>
   )

@@ -119,11 +119,11 @@ export default function Homepage() {
                 accept=".bmp, .jpg, .png, .pbm, .webp ,.jpeg"
               />
               <button type="submit" className="recognize-button">
-                Recognize text
+                Analyze ID
               </button>
             </form>
             <div className="result-container">
-              <img src={image.preview} alt="Image" className="uploaded-image" />
+              <img src={image.preview} alt="Please Submit Image" className="uploaded-image" />
               <p className="result-text">Result</p>
               <div className="result-show">
                 {jsonData == null ? 'No Data' : <pre>{JSON.stringify(jsonData, null, 2)}</pre>}
