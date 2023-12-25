@@ -20,7 +20,7 @@ const navigate = useNavigate();
     <nav style={styles.navbar}>
       <div style={styles.navContainer}>
         <button style={styles.button} onClick={navigateHome}>Home</button>
-        <button style={styles.button} onClick={navigateResults}>View</button>
+        <button style={styles.button} onClick={navigateResults}>View History</button>
       </div>
     </nav>
   );
@@ -34,9 +34,9 @@ const styles = {
   },
   navContainer: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'start',
     maxWidth: '800px',
-    margin: '0 auto',
+    margin: '0 40px',
   },
   button: {
     background: 'none',

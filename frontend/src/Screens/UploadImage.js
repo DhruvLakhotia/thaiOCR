@@ -3,6 +3,7 @@ import  { useContext, useEffect, useState } from 'react'
 import Navbar from './../Components/Navbar';
 import './home.css'
 export default function Homepage() {
+	// Set Image to ui and store in database
 	const [image, setImage] = useState({ preview: "", raw: "" });
 
 	const [jsonData, setJsonData] = useState(null);
@@ -69,12 +70,18 @@ export default function Homepage() {
                 Analyze ID
               </button>
             </form>
-            <div className="result-container">
-              <img src={image.preview} alt="Please Submit Image" className="uploaded-image" />
-              <p className="result-text">Result</p>
+            <div className="result-container" style={{display:'flex', padding:'10px'}}>
+				<div style={{width:'400px', paddingTop:'75px '}}>
+
+              	<img src={image.preview} alt="Please Submit Image" className="uploaded-image"  />
+				</div>
+              <div style={{margin:'0 25px'}}>
+
+			  <p className="result-text">Result</p>
               <div className="result-show">
                 {jsonData == null ? 'No Data' : <pre>{JSON.stringify(jsonData, null, 2)}</pre>}
               </div>
+			  </div>
             </div>
           </div>
         </div>
