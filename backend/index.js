@@ -12,7 +12,9 @@ app.use(cors())
 app.use(express.json());
 
 database();
-
+app.get('/',(req,res)=>{
+    res.send("Hello! this is server")
+})
 app.use('/api/', require('./routes/createUser'));
 app.use('/api/', require('./routes/fetchRecord'));
 app.use('/api/', require('./routes/deleteRecord'));
