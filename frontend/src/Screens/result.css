@@ -1,0 +1,137 @@
+/* YourComponent.css */
+
+.content-section {
+    padding: 20px;
+  }
+  
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Consider the height of the navbar */
+  }
+  
+  .table-data {
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .order {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .head_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-input input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 10px;
+  }
+  
+  .dropdown-content li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-content li:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .tableContainer {
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  td {
+    position: relative;
+  }
+  
+  td img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .status {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .status.completed {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .status.in-progress {
+    background-color: #ffc107;
+    color: #333;
+  }
+  
+  .status.pending {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .action-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s ease;
+
+    padding: 20px; /* Adjust the padding to increase button size */
+  }
+  
+  .action-button:hover {
+    color: #dc3545;
+  }

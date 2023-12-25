@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {Link,useNavigate} from "react-router-dom";
-
+import Navbar from './../Components/Navbar';
+import './result.css'
 export default function ResultPage() {
 	// state for record
 	const [detail,setDetail]=useState([]);
@@ -32,28 +33,37 @@ export default function ResultPage() {
 		setSearchItem(searchTerm)
 		console.log("filterdata "+filterdata);
 		// filter the items using the detail state
-		if(filterdata=='issue Date'){
-		const filteredItems = detail.filter((user) =>
-		(user[filterdata]).toLowerCase().includes(searchTerm.toLowerCase())
+	// 	if(filterdata=='issue Date'){
+	// 	const filteredItems = detail.filter((user) =>
+	// 	(user[filterdata]).toLowerCase().includes(searchTerm.toLowerCase())
 		
-	  );
-	  setFilteredUsers(filteredItems);
-		}
+	//   );
+	//   setFilteredUsers(filteredItems);
+	// 	}
 
-		if(filterdata=='Expiry Date'){
-			const filteredItems = detail.filter((user) =>
-			(user.expiryDate).toLowerCase().includes(searchTerm.toLowerCase())
-		  );
-		  setFilteredUsers(filteredItems);
-			}
+	// 	if(filterdata=='Expiry Date'){
+	// 		const filteredItems = detail.filter((user) =>
+	// 		(user.expiryDate).toLowerCase().includes(searchTerm.toLowerCase())
+	// 	  );
+	// 	  setFilteredUsers(filteredItems);
+	// 		}
 
-			if(filterdata=='Status'){
-				const filteredItems = detail.filter((user) =>
-				(user.status).toLowerCase().includes(searchTerm.toLowerCase())
-			  );
-			  setFilteredUsers(filteredItems);
-				}
-	
+			// if(filterdata=='Status'){
+			// 	// const filteredItems = detail.filter((user) =>
+			// 	(user.status).toLowerCase().includes(searchTerm.toLowerCase())
+			//   );
+			//   setFilteredUsers(filteredItems);
+				// }
+				const filteredItems = detail.filter((user) => {
+					const values = Object.values(user);
+				  
+					return values.some((value) =>
+					  String(value).toLowerCase().includes(searchTerm.toLowerCase())
+					);
+				  });
+				  
+				  setFilteredUsers(filteredItems);
+				  
 	  
 	  }
 	// delete record
@@ -114,81 +124,67 @@ export default function ResultPage() {
 	  },[]);
 
   return (
-    <div>
-      <section id="content">
-
-		<main>
-
-
-			<div class="table-data">
-				<div class="order">
-					<div class="head head_nav">
-						<h3>Records</h3>
-                        
-                            <div class="form-input">
-                                <input type="search" placeholder="Type to search"  value={searchItem}
-        onChange={handleInputChange}/>
-                                
-                                
-                            </div>
-                        
-						<div class="dropdown" >
-                            <button class="dropbtn" ><i class='bx bx-filter' ></i></button>
-                            <div class="dropdown-content" value={filterdata} onClick={handleSelectFilter} >
-                                
-                              <li>issue Date</li>
-                              <li>Expiry Date</li>
-                              <li>Status</li>
-                            </div>
-                          </div>
-						
-                           
-					</div>
-					{filteredUsers.length === 0
-        ? <p>No users found</p>
-        :
-					<div class="tableContainer">
-					<table>
-						<thead>
-							<tr>
-								<th>S.No</th>
-								<th>User</th>
-								<th>Issue Date</th>
-                                <th>Expiry Date</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody >
-							{
-								filteredUsers.map((data,index)=>{
-									return (
-							<tr key={index}>
-								<td>{index+1}</td>
-								<td>
-									<img src="https://www.sinosecu.com.cn/upload/20211018/KXa2NPVvXF278Wr6gTR.jpg"/>
-									<p>{data.first_name + " "+data.lastName
-									}</p>
-								</td>
-                                <td>{data.issueDate}</td>
-                                <td>{data.expiryDate}</td>
-								
-								<td><span class="status completed"  >{data.status}</span></td>
-                     <td ><button onClick={async() => await deleteItem(data._id)} ><i class='bx bxs-trash' ></i></button></td>
-							</tr>
-									)
-								})}
-						</tbody>
-					</table>
-					</div>
-}
-				</div>
-				
+	<div>
+	<Navbar />
+	<section id="content" className="content-section">
+	  <main className="main">
+		<div className="table-data">
+		  <div className="order">
+			<div className="head head_nav">
+			  <h3>Records</h3>
+			  <div className="form-input">
+				<input
+				  type="search"
+				  placeholder="Type to search"
+				  value={searchItem}
+				  onChange={handleInputChange}
+				/>
+			  </div>
+			  
 			</div>
-		</main>
-		
+			{filteredUsers.length === 0 ? (
+			  <p>No users found</p>
+			) : (
+			  <div className="tableContainer">
+				<table>
+				  <thead>
+					<tr>
+					  <th>S.No</th>
+					  <th>User</th>
+					  <th>Issue Date</th>
+					  <th>Expiry Date</th>
+					  <th>Status</th>
+					  <th>Action</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					{filteredUsers.map((data, index) => (
+					  <tr key={index}>
+						<td>{index + 1}</td>
+						<td>
+						  {/* <img src="https://www.sinosecu.com.cn/upload/20211018/KXa2NPVvXF278Wr6gTR.jpg" alt="User" /> */}
+						  <p>{data.first_name + ' ' + data.lastName}</p>
+						</td>
+						<td>{data.issueDate}</td>
+						<td>{data.expiryDate}</td>
+						<td>
+						  <span className={`status ${data.status.toLowerCase()}`}>{data.status}</span>
+						</td>
+						<td>
+						  <button onClick={() => deleteItem(data._id)}>
+							<i className="bx bxs-trash"></i>
+						  </button>
+						</td>
+					  </tr>
+					))}
+				  </tbody>
+				</table>
+			  </div>
+			)}
+		  </div>
+		</div>
+	  </main>
 	</section>
-	
-	
-    </div>
+  </div>
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import  { useContext, useEffect, useState } from 'react'
-
+import Navbar from './../Components/Navbar';
+import './home.css'
 export default function Homepage() {
 	// Set Image to ui and store in database
 	const [image, setImage] = useState({ preview: "", raw: "" });
@@ -21,7 +22,7 @@ export default function Homepage() {
 		  }
 		  console.log("Image ",image.preview+"	"+image.raw);
 	}
-	const onsubmit=async(e)=>{
+	const onSubmit=async(e)=>{
 		// window.alert("ertyu"+e);
 		// button.setAttribute('disabled', '');
 		e.preventDefault();
@@ -57,28 +58,29 @@ export default function Homepage() {
 
   return (
     <>
+	<Navbar/>
      
-	<section id="content">
+	{/* <section id="content">
 		
 		
 		
 		<main>
 			
-			  <div class="mt-5">
+			  <div>
 
-				<div class="row g-3 w-100">
-					<div class="col-6">
-						<form onSubmit={onsubmit} class="input-group mb-5">
-							<input type="file" class="form-control" name="uploadedimage" onChange={handleOnClick} aria-describedby="inputGroupFileAddon03" aria-label="Upload" accept=".bmp, .jpg, .png, .pbm, .webp"/>
+				<div >
+					<div>
+						<form onSubmit={onsubmit} >
+							<input type="file"  name="uploadedimage" onChange={handleOnClick} aria-describedby="inputGroupFileAddon03" aria-label="Upload" accept=".bmp, .jpg, .png, .pbm, .webp"/>
 						
 					
-							<button type="submit" id="cbtn" class="btn btn-primary">
+							<button type="submit"  >
 								Recognize text
 							</button>
 					</form>
-					<div class="col-6 upload_img">
-						<div class="card img_card left">
-							<img id="i-img"  src={image.preview} class="card-img-top" alt="Image"/>
+					<div >
+						<div >
+							<img   src={image.preview}  alt="Image"/>
 								<p className='result_text'>Result</p>
 							<div className='resultshow'>
 							{jsonData==null?"No Data": (
@@ -101,8 +103,36 @@ export default function Homepage() {
 			
 		</main>
 		
-	</section>
+	</section> */}
 	
+	<section id="content" className="content-section">
+      <main className="main-container">
+        <div className="main-wrapper">
+          <div className="form-container">
+            <form onSubmit={onSubmit} className="upload-form">
+              <input
+                type="file"
+                name="uploadedimage"
+                onChange={handleOnClick}
+                aria-describedby="inputGroupFileAddon03"
+                aria-label="Upload"
+                accept=".bmp, .jpg, .png, .pbm, .webp ,.jpeg"
+              />
+              <button type="submit" className="recognize-button">
+                Recognize text
+              </button>
+            </form>
+            <div className="result-container">
+              <img src={image.preview} alt="Image" className="uploaded-image" />
+              <p className="result-text">Result</p>
+              <div className="result-show">
+                {jsonData == null ? 'No Data' : <pre>{JSON.stringify(jsonData, null, 2)}</pre>}
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
 	
 
     </>

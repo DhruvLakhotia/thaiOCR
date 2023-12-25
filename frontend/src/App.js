@@ -2,6 +2,7 @@ import {BrowserRouter , Route,Routes} from "react-router-dom";
 import './App.css';
 import  UploadImage  from './Screens/UploadImage';
 import  ResultPage  from './Screens/Results';
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
